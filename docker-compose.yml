@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - ./src:/app/src
+    command: yarn run start:dev
+    ports:
+      - 3000:3000
+    restart: on-failure
+    container_name: api_express
+    # depends_on:
+    #   - mongo
+    # networks:
+    #   - mongo-compose-network
+    
+  # mongo:
+  #   image: mongo
+  #   env_file:
+  #     - ./.env
+  #   ports:
+  #     - "27017:27017"
+  #   networks:
+  #     - mongo-compose-network
+
+networks: 
+  mongo-compose-network:
+    driver: bridge
