@@ -1,11 +1,11 @@
-version: '3.9'
+version: "3.9"
 
 services:
   web:
     build:
       context: .
     volumes:
-      - ./src:/app/src
+      - .:/app
     command: yarn run start:dev
     ports:
       - 3000:3000
@@ -15,7 +15,7 @@ services:
       - mongo
     networks:
       - mongo-compose-network
-    
+
   mongo:
     image: mongo
     env_file:
@@ -25,6 +25,6 @@ services:
     networks:
       - mongo-compose-network
 
-networks: 
+networks:
   mongo-compose-network:
     driver: bridge
