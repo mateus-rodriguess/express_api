@@ -1,6 +1,10 @@
 import express from "express";
 import User from "../../models/User.js";
-import { loginValidation } from "../../services/validation/userValidation.js";
+import {
+    loginValidation,
+    registerValidation,
+} from "../../services/validation/userValidation.js";
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
