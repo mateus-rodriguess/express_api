@@ -24,6 +24,11 @@ services:
       - "27017:27017"
     networks:
       - mongo-compose-network
+  
+  redis:
+    image: redis:7.0.2
+    ports:
+      - "6379:6379"
 
 networks:
   mongo-compose-network:
