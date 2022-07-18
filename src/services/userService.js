@@ -1,8 +1,9 @@
-import {user} from "../database/user.js"
+import { user } from "../dao/userDAO.js";
 
 const getAllusers = () => {
-  const allUsers = user.getAllUsers()
-  return allUsers
+  const allUsers = user.getAllUsers(10);
+  console.log(allUsers);
+  return allUsers;
 };
 
 const getOneUser = () => {

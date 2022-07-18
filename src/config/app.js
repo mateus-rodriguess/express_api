@@ -1,14 +1,13 @@
 import express, { json, urlencoded } from "express";
 import { errors } from "celebrate";
 import { router as v1UsersRouter } from "../v1/routes/users.js";
-const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
 
-app.use(bodyParser.json());
 var app = express();
 
-app.use(json());
 app.use(urlencoded({ extended: false }));
 
+app.use(bodyParser.json());
 // app.use('/', indexRouter);
 app.use("/api/v1/users", v1UsersRouter);
 

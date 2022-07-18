@@ -3,7 +3,11 @@ import { userService } from "../../services/userService.js";
 const getAllusers = async (req, res) => {
   const allUsers = userService.getAllusers();
 
-  res.status(200).json({ status: "OK", data: allUsers });
+  if (allUsers) {
+    res.status(500).json({ status: "ERRO" });
+  } else {
+    res.status(200).json({ status: "OK", data: allUsers });
+  }
 };
 
 const getOneUser = async (req, res) => {
